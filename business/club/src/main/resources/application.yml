@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: business-club
+
+server:
+  port: 8000
