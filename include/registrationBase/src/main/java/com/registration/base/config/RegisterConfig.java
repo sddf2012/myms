@@ -1,14 +1,14 @@
-package com.registration.base;
+package com.registration.base.config;
 
 import lombok.Data;
 
 /**
  * @author liu peng bo
- * date: 2021/6/29 17:02
+ * date: 2021/7/13 15:01
  */
 @Data
 public class RegisterConfig {
     private RegisterInstanceConfig instance;
 
-    private RegisterServerConfig server;
+    private RegisterClientConfig client;
 }

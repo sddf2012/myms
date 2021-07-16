@@ -15,6 +15,8 @@
         <module>registrationClient</module>
         <module>registrationServer</module>
         <module>registrationBase</module>
+        <module>spring-registration-client</module>
+        <module>spring-registration-server</module>
     </modules>
 
 

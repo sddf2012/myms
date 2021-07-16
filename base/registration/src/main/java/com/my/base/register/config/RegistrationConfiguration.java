@@ -1,7 +1,5 @@
 package com.my.base.register.config;
 
-import com.registration.server.RegistrationServerService;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,9 +8,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class RegistrationConfiguration {
-    @Bean
-    public RegistrationServerService serverService(){
-        return new RegistrationServerService();
-    }
+
 
 }

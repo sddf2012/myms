@@ -1,21 +1,22 @@
-package com.registration.base;
+package com.registration.base.config;
 
 import lombok.Data;
 
-import java.util.Date;
-
 /**
  * @author liu peng bo
- * date: 2021/6/29 16:14
+ * date: 2021/6/29 17:17
  */
 @Data
-public class RegisterInstance {
+public class RegisterInstanceConfig {
     private String serviceId;
 
     private String host;
 
     private Integer port;
 
+    /**
+     * 续约间隔时间 单位秒
+     */
     private Integer renewIntervalTime = 30;
 
     /**
@@ -23,14 +24,11 @@ public class RegisterInstance {
      */
     private Integer minHeartbeatTime = 90;
 
-    private Date registerTime;
-
-    private Date lastRenewTime;
-
-    private Long lastHeartbeatTime;
+    public String getInstanceInfo() {
+        return serviceId + "/" + host + ":" + port;
+    }
 
     public String getInstanceUrl() {
         return host + ":" + port;
     }
-
 }
