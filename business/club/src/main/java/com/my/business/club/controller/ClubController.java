@@ -29,7 +29,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/club/base")
 public class ClubController {
-    @Autowired
+    /*@Autowired
     private RegistrationClientService clientService;
 
     @PostMapping("/getClub")
@@ -59,5 +59,5 @@ public class ClubController {
         }
         clubVos.add(clubVo);
         return clubVos;
-    }
+    }*/
 }

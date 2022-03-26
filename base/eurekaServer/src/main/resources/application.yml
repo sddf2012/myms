@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: base-eurekaServer
+
+server:
+  port: 7001
+
+eureka:
+  instance:
+    prefer-ip-address: true
+#    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka
+    fetch-registry: false
+    register-with-eureka: false
+  server:
+    enable-self-preservation: true

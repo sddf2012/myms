@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class ClubConfig {
-    @Value("${server.port}")
+    /*@Value("${server.port}")
     private Integer port;
 
     @Value("${spring.application.name}")
@@ -39,7 +39,7 @@ public class ClubConfig {
         RegistrationClientService clientService = new RegistrationClientService();
         clientService.setConfig(config);
         return clientService;
-    }
+    }*/
 
 
 }
