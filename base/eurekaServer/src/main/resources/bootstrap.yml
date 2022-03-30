@@ -2,7 +2,7 @@ spring:
   application:
     name: base-eurekaServer
   profiles:
-    active: z2
+    active: z1
 
 server:
   port: 7001
