@@ -9,10 +9,13 @@ import com.registration.base.RegisterInstance;
 import com.registration.client.RegistrationClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +62,14 @@ public class ClubController {
     }*/
 
     @GetMapping("/getClub")
-    public String getClub(String player) {
-        return player + " in fc club";
+    public String getClub() {
+        String host = "";
+        try {
+            InetAddress address = InetAddress.getLocalHost();
+            host = address.getHostName();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        return host + " return fc club";
     }
 }

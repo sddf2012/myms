@@ -2,11 +2,11 @@
 eureka:
   instance:
     prefer-ip-address: true
-    hostname: eureka1.com
+    hostname: eureka1
   #    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
   client:
     service-url:
-      defaultZone: http://eureka2.com:${server.port}/eureka/
+      defaultZone: http://192.168.3.5:${server.port}/eureka/
     fetch-registry: true
     register-with-eureka: true
   server:
