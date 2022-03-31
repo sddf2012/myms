@@ -1,25 +1,11 @@
 package com.my.business.club.controller;
 
 
-import com.alibaba.fastjson.JSON;
-import com.my.common.domain.club.bo.ClubSearchBo;
-import com.my.common.domain.club.vo.ClubVo;
-import com.my.common.instrument.http.HttpClientUtils;
-import com.registration.base.RegisterInstance;
-import com.registration.client.RegistrationClientService;
+import com.my.common.instrument.host.HostUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author liu peng bo
@@ -63,13 +49,6 @@ public class ClubController {
 
     @GetMapping("/getClub")
     public String getClub() {
-        String host = "";
-        try {
-            InetAddress address = InetAddress.getLocalHost();
-            host = address.getHostName();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-        return host + " return fc club";
+        return HostUtils.getHost() + " return fc club";
     }
 }

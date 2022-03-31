@@ -24,6 +24,7 @@
     <modules>
         <module>domain</module>
         <module>instrument</module>
+        <module>server</module>
     </modules>
 
 
