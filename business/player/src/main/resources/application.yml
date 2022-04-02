@@ -15,8 +15,11 @@ eureka:
 ribbon:
   eureka:
     enabled: true
-
-
+  OkToRetryOnAllOperations: false #对所有操作请求都进行重试,默认false
+  ReadTimeout: 2000   #负载均衡超时时间，默认值5000
+  ConnectTimeout: 3000 #ribbon请求连接的超时时间，默认值2000
+  MaxAutoRetries: 0     #对当前实例的重试次数，默认0
+  MaxAutoRetriesNextServer: 1 #对切换实例的重试次数，默认1
 
 management:
   endpoints:
@@ -29,8 +32,8 @@ feign:
     config:
       default:
         loggerLevel: FULL
-      business-club:
-        loggerLevel: BASIC
+#      business-club:
+#        loggerLevel: BASIC
 logging:
   level:
     com.my.common.server.feign: debug

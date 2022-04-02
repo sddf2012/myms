@@ -5,6 +5,7 @@ import com.my.common.instrument.host.HostUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -48,7 +49,14 @@ public class ClubController {
     }*/
 
     @GetMapping("/getClub")
-    public String getClub() {
+    public String getClub(@RequestParam(value = "timeout", required = false) Integer timeout) {
+        if (timeout != null) {
+            try {
+                Thread.sleep(timeout * 1000L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         return HostUtils.getHost() + " return fc club";
     }
 }
