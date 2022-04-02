@@ -49,11 +49,11 @@ public class ClubController {
     }*/
 
     @GetMapping("/getClub")
-    public String getClub(@RequestParam(value = "timeout", required = false) Integer timeout) {
+    public String getClub(@RequestParam(value = "timeout", required = false) Long timeout) {
         log.info("调用 getClub,timeout:{}", timeout);
-        if (timeout != null) {
+        if (timeout != null && timeout > 0) {
             try {
-                Thread.sleep(timeout * 1000L);
+                Thread.sleep(timeout);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
