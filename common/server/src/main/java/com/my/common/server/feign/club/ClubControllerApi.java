@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "business-club", path = "/club/base", fallbackFactory = ClubControllerFallbackFactory.class)
 public interface ClubControllerApi {
     @GetMapping("/getClub")
-    String getClub(@RequestParam(value = "timeout", required = false) Integer timeout);
+    String getClub(@RequestParam(value = "timeout", required = false) Long timeout);
 }

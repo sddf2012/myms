@@ -18,7 +18,7 @@ public class TestFeignController {
     private ClubControllerApi clubControllerApi;
 
     @GetMapping("/getClub")
-    public String getClub(@RequestParam(value = "timeout", required = false) Integer timeout) {
+    public String getClub(@RequestParam(value = "timeout", required = false) Long timeout) {
         return clubControllerApi.getClub(timeout);
     }
 }
