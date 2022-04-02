@@ -29,3 +29,9 @@ feign:
     config:
       default:
         loggerLevel: FULL
+      business-club:
+        loggerLevel: BASIC
+logging:
+  level:
+    com.my.common.server.feign: debug
+
