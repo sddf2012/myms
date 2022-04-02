@@ -50,6 +50,7 @@ public class ClubController {
 
     @GetMapping("/getClub")
     public String getClub(@RequestParam(value = "timeout", required = false) Integer timeout) {
+        log.info("调用 getClub,timeout:{}", timeout);
         if (timeout != null) {
             try {
                 Thread.sleep(timeout * 1000L);

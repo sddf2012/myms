@@ -2,6 +2,7 @@ package com.my.common.server.feign.club;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author liu peng bo
@@ -10,5 +11,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(name = "business-club", path = "/club/base")
 public interface ClubControllerApi {
     @GetMapping("/getClub")
-    String getClub();
+    String getClub(@RequestParam(value = "timeout", required = false) Integer timeout);
 }
