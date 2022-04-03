@@ -1,0 +1,3 @@
+test:
+  configCenter:
+    key1: "configCenter valid"

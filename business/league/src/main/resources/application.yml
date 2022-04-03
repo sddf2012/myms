@@ -1,6 +1,12 @@
 spring:
   application:
     name: business-league
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: base-configCenter
+      name: common-config,business-league-config
 
 server:
   port: 8020
