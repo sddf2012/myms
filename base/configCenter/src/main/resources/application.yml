@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: base-configCenter
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sddf2012/configCenter.git
+          search-paths: /myms/common,/myms/business
+
+server:
+  port: 7002
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+    fetch-registry: true
+    register-with-eureka: true

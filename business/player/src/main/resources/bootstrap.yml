@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: business-player
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: base-configCenter
+      name: common-config,business-player-config
+
+server:
+  port: 8010
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+    fetch-registry: true
+    register-with-eureka: true
