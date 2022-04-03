@@ -40,6 +40,19 @@ management:
       exposure:
         include: "*"
 
+spring:
+  cloud:
+    bus:
+      trace:
+        enabled: true
+
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 192.168.3.6
+    port: 5672
+
+
 logging:
   level:
     com.my.common.server.feign: debug
