@@ -2,7 +2,7 @@ spring:
   application:
     name: base-configCenter
   profiles:
-    active: dev
+    active: native
 
 server:
   port: 7002
