@@ -16,25 +16,17 @@ spring:
         locator:
           lower-case-service-id: true
       routes:
-        - id: swagger-merchant-loan-channel
-          uri: lb://merchant-loan-channel
+        - id: business-player
+          uri: lb://business-player
           predicates:
-            - Path=/loan/channel/v2/api-docs
-          filters:
-            - StripPrefix=2
-        #融360
-        - id: merchant-loan-channel-rong360
-          uri: lb://merchant-loan-channel
-          order: 0
-          predicates:
-            - Path=/api/loan/channel/ron/*
+            - Path=/api/business/player/**
           filters:
             - StripPrefix=1
-            - name: RequestRateLimiter
-              args:
-                key-resolver: '#{@apiResolver}'
-                redis-rate-limiter.replenishRate: 30
-                redis-rate-limiter.burstCapacity: 40
+#            - name: RequestRateLimiter
+#              args:
+#                key-resolver: '#{@apiResolver}'
+#                redis-rate-limiter.replenishRate: 30
+#                redis-rate-limiter.burstCapacity: 40
 
 server:
   port: 7003
