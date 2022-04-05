@@ -12,8 +12,8 @@ spring:
             - Path=/api/player/**
           filters:
             - StripPrefix=1
-#            - name: RequestRateLimiter
-#              args:
-#                key-resolver: '#{@apiResolver}'
-#                redis-rate-limiter.replenishRate: 30
-#                redis-rate-limiter.burstCapacity: 40
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@apiResolver}'
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 1
