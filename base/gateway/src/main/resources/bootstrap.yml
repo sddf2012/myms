@@ -10,24 +10,6 @@ spring:
         enabled: true
         service-id: base-configCenter
 
-    gateway:
-      enabled: true
-      discovery:
-        locator:
-          lower-case-service-id: true
-      routes:
-        - id: business-player
-          uri: lb://business-player
-          predicates:
-            - Path=/api/business/player/**
-          filters:
-            - StripPrefix=1
-#            - name: RequestRateLimiter
-#              args:
-#                key-resolver: '#{@apiResolver}'
-#                redis-rate-limiter.replenishRate: 30
-#                redis-rate-limiter.burstCapacity: 40
-
 server:
   port: 7003
 
@@ -40,3 +22,7 @@ eureka:
       defaultZone: http://localhost:7001/eureka
     fetch-registry: true
     register-with-eureka: true
+
+logging:
+  level:
+    ROOT: info
