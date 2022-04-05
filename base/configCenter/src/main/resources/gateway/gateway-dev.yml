@@ -12,7 +12,7 @@ spring:
             - Path=/api/player/**
           filters:
             - StripPrefix=1
-            - name: RequestRateLimiter
+            - name: CustomRequestRateLimiter
               args:
                 key-resolver: '#{@apiResolver}'
                 redis-rate-limiter.replenishRate: 1
