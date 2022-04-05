@@ -1,12 +1,14 @@
 spring:
   application:
     name: business-player
+  profiles:
+    active: dev
   cloud:
     config:
       discovery:
         enabled: true
         service-id: base-configCenter
-      name: common-config,business-player-config
+      name: common,business-player
 
 server:
   port: 8010

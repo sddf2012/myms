@@ -1,12 +1,14 @@
 spring:
   application:
     name: business-club
+  profiles:
+    active: dev
   cloud:
     config:
       discovery:
         enabled: true
         service-id: base-configCenter
-      name: common-config,business-club-config
+      name: common,business-club
 
 server:
   port: 8000

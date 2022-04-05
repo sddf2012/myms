@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: base-configCenter
+  profiles:
+    active: dev
+
+server:
+  port: 7002

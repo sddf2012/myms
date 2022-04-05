@@ -15,6 +15,7 @@
         <module>registration</module>
         <module>eurekaServer</module>
         <module>configCenter</module>
+        <module>gateway</module>
     </modules>
 
     <dependencies>

@@ -1,12 +1,12 @@
 spring:
-  application:
-    name: base-configCenter
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/sddf2012/configCenter.git
-          search-paths: /myms/common,/myms/business
+#        git:
+#          uri: https://github.com/sddf2012/configCenter.git
+#          search-paths: /myms/common,/myms/business
+        native:
+          searchLocations: classpath:/common,classpath:/business,classpath:/gateway
     bus:
       trace:
         enabled: true
@@ -16,9 +16,6 @@ spring:
     password: guest
     host: 192.168.3.6
     port: 5672
-
-server:
-  port: 7002
 
 eureka:
   instance:

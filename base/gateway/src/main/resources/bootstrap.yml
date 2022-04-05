@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: base-gateway
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: common,gateway
+      discovery:
+        enabled: true
+        service-id: base-configCenter
+
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          lower-case-service-id: true
+      routes:
+        - id: swagger-merchant-loan-channel
+          uri: lb://merchant-loan-channel
+          predicates:
+            - Path=/loan/channel/v2/api-docs
+          filters:
+            - StripPrefix=2
+        #融360
+        - id: merchant-loan-channel-rong360
+          uri: lb://merchant-loan-channel
+          order: 0
+          predicates:
+            - Path=/api/loan/channel/ron/*
+          filters:
+            - StripPrefix=1
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@apiResolver}'
+                redis-rate-limiter.replenishRate: 30
+                redis-rate-limiter.burstCapacity: 40
+
+server:
+  port: 7003
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+    fetch-registry: true
+    register-with-eureka: true
