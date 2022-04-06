@@ -30,5 +30,4 @@ target
 /.nb-gradle/
 .DS_Store
 
-logfiles
-.log
+logfiles/**
