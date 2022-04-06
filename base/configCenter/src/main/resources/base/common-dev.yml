@@ -1,0 +1,71 @@
+ribbon:
+  eureka:
+    enabled: true
+  OkToRetryOnAllOperations: false #对所有操作请求都进行重试,默认false
+  ReadTimeout: 2000   #负载均衡超时时间，默认值1000
+  ConnectTimeout: 3000 #ribbon请求连接的超时时间，默认值1000
+  MaxAutoRetries: 0     #对当前实例的重试次数，默认0
+  MaxAutoRetriesNextServer: 1 #对切换实例的重试次数，默认1
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: FULL
+      #        connectTimeout: 3000
+      #        readTimeout: 4000   #会使ribbon的重试无效，原因？ 会覆盖ribbon的超时设置
+#      business-club:
+#        loggerLevel: BASIC
+  hystrix:
+    enabled: true
+# 断路器配置
+hystrix:
+  command:
+    default:  #default全局有效，service id指定应用有效
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4500 #断路器超时时间，默认1000ms
+  circuitBreaker:   #熔断器相关配置
+    enabled: true   #是否启动熔断器
+    requestVolumeThreshold: 20     #该属性设置滚动窗口中熔断的最小失败请求数量，如果此属性值为20，则在窗口时间内（如10s内），如果只收到19个请求且都失败了，则断路器也不会开启，默认值：20
+    sleepWindowInMilliseconds: 5000    #熔断后，在此值的时间的内，hystrix会拒绝新的请求，只有过了这个时间断路器才会重新超时发送请求
+    errorThresholdPercentage: 50   #设置失败百分比的阈值。如果失败比率超过这个值，则熔断
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  cloud:
+    bus:
+      trace:
+        enabled: true
+
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 192.168.3.6
+    port: 5672
+
+
+
+logging:
+  level:
+    com.my.common.server.feign: debug
+  file:
+    name: logfiles/${spring.application.name}/${spring.application.name}.log
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] - [${spring.application.name:},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] - %-5level %logger{36} - %msg%n'
+
+# 控制台的日志模式
+#logging.pattern.console: '%d{yyyy-MM-dd HH:mm:ss} - [${spring.application.name:},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] - %msg%n'
