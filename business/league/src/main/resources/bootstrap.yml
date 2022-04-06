@@ -12,6 +12,7 @@ spring:
 
 server:
   port: 8020
+
 eureka:
   instance:
     prefer-ip-address: true
@@ -20,3 +21,11 @@ eureka:
       defaultZone: http://localhost:7001/eureka
     fetch-registry: true
     register-with-eureka: true
+
+logging:
+  level:
+    com.my.common.server.feign: debug
+  file:
+    name: logfiles/${spring.application.name}/${spring.application.name}.log
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] - [${spring.application.name:},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] - %-5level %logger{36} - %msg%n'

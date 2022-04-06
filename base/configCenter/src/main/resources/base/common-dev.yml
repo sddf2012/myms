@@ -46,6 +46,11 @@ spring:
       trace:
         enabled: true
 
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+
   rabbitmq:
     username: guest
     password: guest
@@ -53,6 +58,14 @@ spring:
     port: 5672
 
 
+
 logging:
   level:
     com.my.common.server.feign: debug
+  file:
+    name: logfiles/${spring.application.name}/${spring.application.name}.log
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] - [${spring.application.name:},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] - %-5level %logger{36} - %msg%n'
+
+# 控制台的日志模式
+#logging.pattern.console: '%d{yyyy-MM-dd HH:mm:ss} - [${spring.application.name:},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] - %msg%n'

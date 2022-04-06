@@ -29,3 +29,6 @@ target
 /nbdist/
 /.nb-gradle/
 .DS_Store
+
+logfiles
+.log

@@ -1,18 +1,21 @@
 spring:
   application:
-    name: business-player
+    name: base-admin
   profiles:
     active: dev
   cloud:
     config:
+      name: common,admin
       discovery:
         enabled: true
         service-id: base-configCenter
-      name: common,business-player
-
-server:
-  port: 8010
-
+#    inetutils:
+#      preferredNetworks: 10.0
+#      ignoredInterfaces: eth0
+  security:
+    user:
+      name: admin
+      password: admin
 
 eureka:
   instance:
@@ -23,9 +26,12 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
 
+server:
+  port: 7004
+
 logging:
   level:
-    com.my.common.server.feign: debug
+    ROOT: info
   file:
     name: logfiles/${spring.application.name}/${spring.application.name}.log
   pattern:

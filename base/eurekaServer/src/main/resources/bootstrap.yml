@@ -6,3 +6,11 @@ spring:
 
 server:
   port: 7001
+
+logging:
+  level:
+    ROOT: info
+  file:
+    name: logfiles/${spring.application.name}/${spring.application.name}.log
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] - [${spring.application.name:},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] - %-5level %logger{36} - %msg%n'

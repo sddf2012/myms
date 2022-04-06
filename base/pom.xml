@@ -16,6 +16,7 @@
         <module>eurekaServer</module>
         <module>configCenter</module>
         <module>gateway</module>
+        <module>admin</module>
     </modules>
 
     <dependencies>
