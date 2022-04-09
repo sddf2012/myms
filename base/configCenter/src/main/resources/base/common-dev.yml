@@ -57,6 +57,19 @@ spring:
     host: 192.168.3.6
     port: 5672
 
+#  zipkin:
+#    sender:
+#      type: rabbit
+  zipkin:
+    service:
+      name: ${spring.application.name}
+    sender:
+      type: web
+    base-url: http://${zipkin.host:127.0.0.1}:${zipkin.port:9411}
+  sleuth:
+    sampler:
+      probability: 1.0
+
 
 
 logging:
