@@ -45,6 +45,14 @@ spring:
     bus:
       trace:
         enabled: true
+    stream:
+      default-binder: rabbit
+      bindings:
+        testStreamOutput:
+          destination: testStream
+        testStreamInput:
+          destination: testStream
+          group: testStream-group
 
 #  security:
 #    user:

@@ -1,3 +1,13 @@
 test:
   configCenter:
     key1: "configCenter valid"
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        testStreamOutput:
+          destination: testStream
+        testStreamInput:
+          destination: testStream
+          group: testStream-group
