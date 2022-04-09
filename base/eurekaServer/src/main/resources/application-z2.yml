@@ -1,4 +1,3 @@
-
 eureka:
   instance:
     prefer-ip-address: true
@@ -11,3 +10,17 @@ eureka:
     register-with-eureka: true
   server:
     enable-self-preservation: false
+
+zipkin:
+  host: 192.168.3.6
+
+spring:
+  zipkin:
+    service:
+      name: ${spring.application.name}
+    sender:
+      type: web
+    base-url: http://${zipkin.host:127.0.0.1}:${zipkin.port:9411}
+  sleuth:
+    sampler:
+      probability: 1.0

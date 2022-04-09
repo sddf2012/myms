@@ -7,6 +7,8 @@ spring:
 server:
   port: 7001
 
+
+
 logging:
   level:
     ROOT: info
