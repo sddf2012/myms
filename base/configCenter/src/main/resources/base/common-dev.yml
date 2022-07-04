@@ -40,30 +40,30 @@ management:
       exposure:
         include: "*"
 
-spring:
-  cloud:
-    bus:
-      trace:
-        enabled: true
-    stream:
-      default-binder: rabbit
-      bindings:
-        testStreamOutput:
-          destination: testStream
-        testStreamInput:
-          destination: testStream
-          group: testStream-group
+#spring:
+#  cloud:
+#    bus:
+#      trace:
+#        enabled: true
+#    stream:
+#      default-binder: rabbit
+#      bindings:
+#        testStreamOutput:
+#          destination: testStream
+#        testStreamInput:
+#          destination: testStream
+#          group: testStream-group
 
 #  security:
 #    user:
 #      name: admin
 #      password: admin
 
-  rabbitmq:
-    username: guest
-    password: guest
-    host: 192.168.3.6
-    port: 5672
+#  rabbitmq:
+#    username: guest
+#    password: guest
+#    host: 192.168.3.6
+#    port: 5672
 
 #  zipkin:
 #    sender:

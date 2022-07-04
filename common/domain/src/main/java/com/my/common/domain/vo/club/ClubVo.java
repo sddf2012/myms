@@ -1,4 +1,4 @@
-package com.my.common.domain.club.vo;
+package com.my.common.domain.vo.club;
 
 import lombok.Data;
 

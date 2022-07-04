@@ -2,11 +2,11 @@ spring:
   # 缓存配置
   redis:
     # 地址
-    host: 192.168.3.6
+    host: localhost
     # 连接端口
     port: 6379
     # 数据库索引（默认为0）
-    database: 0
+    database: 10
     # 连接密码（默认为空）
 #    password: 2345
     # 连接超时时间（毫秒）

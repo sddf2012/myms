@@ -28,7 +28,12 @@
         <java.version>11</java.version>
 <!--        <spring-cloud.version>2020.0.3</spring-cloud.version>-->
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+        <HikariCP-version>5.0.1</HikariCP-version>
+        <springfox-version>3.0.0</springfox-version>
+        <druid-version>1.2.11</druid-version>
+        <mysql-jdbc>8.0.29</mysql-jdbc>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

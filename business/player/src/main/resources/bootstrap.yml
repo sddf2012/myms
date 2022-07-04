@@ -9,6 +9,9 @@ spring:
         enabled: true
         service-id: base-configCenter
       name: common,business-player
+  datasource:
+    hikari:
+      username: 12321
 
 server:
   port: 8010

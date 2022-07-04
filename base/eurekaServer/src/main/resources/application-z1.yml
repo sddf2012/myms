@@ -7,8 +7,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://192.168.3.5:${server.port}/eureka/
-    fetch-registry: true
-    register-with-eureka: true
+    fetch-registry: false
+    register-with-eureka: false
   server:
     enable-self-preservation: false
 

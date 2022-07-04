@@ -7,15 +7,15 @@ spring:
 #          search-paths: /myms/common,/myms/business
         native:
           searchLocations: classpath:/base,classpath:/business,classpath:/gateway
-    bus:
-      trace:
-        enabled: true
+#    bus:
+#      trace:
+#        enabled: true
 
-  rabbitmq:
-    username: guest
-    password: guest
-    host: 192.168.3.6
-    port: 5672
+#  rabbitmq:
+#    username: guest
+#    password: guest
+#    host: 192.168.3.6
+#    port: 5672
 
 eureka:
   instance:
